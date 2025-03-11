@@ -1,0 +1,38 @@
+#define MAX 100
+int stack[MAX];
+int top = -1;
+void push(int val) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        stack[++top] = val;
+    }
+}
+int pop() {
+    if (top == -1) {
+        printf("Stack Underflow\n");
+        return -1;
+    } else {
+        return stack[top--];
+    }
+}
+int main() {
+    int i, val;
+    for (i = 0; i < 3; i++) {
+        scanf("%d", &val);
+        push(val);
+    }
+    pop();
+
+    for (i = 0; i < 2; i++) {
+        scanf("%d", &val);
+        push(val);
+    }
+    for (i = 0; i < 3; i++) {
+        pop();
+    }
+    for (i = top; i >= 0; i--) {
+        printf("%d ", stack[i]);
+    }
+    return 0;
+}
