@@ -1,0 +1,37 @@
+#define MAX 100
+
+int stack[MAX];
+int top = -1;
+
+void push(int val) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        stack[++top] = val;
+    }
+}
+void Stack() {
+    int i, j, temp;
+    for (i = 0; i <= top; i++) {
+        for (j = i + 1; j <= top; j++) {
+            if (stack[i] < stack[j]) {
+                temp = stack[i];
+                stack[i] = stack[j];
+                stack[j] = temp;
+            }
+        }
+    }
+}
+int main() {
+    int N, i, val;
+    scanf("%d", &N);
+    for (i = 0; i < N; i++) {
+        scanf("%d", &val);
+        push(val);
+    }
+    Stack();
+    for (i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    return 0;
+}
