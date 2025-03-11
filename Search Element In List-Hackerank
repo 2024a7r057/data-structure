@@ -1,0 +1,27 @@
+
+int main() {
+    int N, i, searchElement, found = 0;
+    scanf("%d", &N);
+    if (N < 1 || N > 1000) {
+        return 1;
+    }
+    int array[N];
+    for (i = 0; i < N; i++) {
+        scanf("%d", &array[i]);
+    }
+    scanf("%d", &searchElement);
+    for (i = 0; i < N; i++) {
+        if (array[i] == searchElement) {
+            found = 1;
+            break;
+        }
+    }
+    if (found) {
+        printf("Found\n");
+    } else {
+        printf("Not Found\n");
+    }
+
+    return 0;
+}
+
